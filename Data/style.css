@@ -99,14 +99,15 @@ a:hover {
 }
 
 .hov {
-    transition: all 0.3s ease;
+
 }
 
 .hov img {
     width: 60px;
+    transition: all 0.25s ease;
 }
 
 .hov:hover img {
-    opacity: 1.11;
-    transform: scale(1.05);
+    opacity: 1.2;
+    transform: scale(1.15);
 }
