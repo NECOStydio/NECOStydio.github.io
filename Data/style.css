@@ -26,10 +26,11 @@ body {
 
 header {
     display: flex;
-    height: 60px;
+    height: 40px;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    position: fixed;
+    width: 100%;
     background: #FFFFFF;
     font-size: 18px;
     font-weight: 800;
@@ -47,7 +48,7 @@ header p {
 main {
     font-size: 16px;
     display: flex;
-    height: 770px;
+    height: 1050px;
     align-items: center;
     justify-content: center;
     gap: 200px;
@@ -83,11 +84,19 @@ a:hover {
 }
 
 .box {
-    display: flex;
-    width: 900px; 
+    display: inline-block; 
+    width: fit-content;
+    max-width: 900px;
+    padding: 40px;
     font-size: 30px;
     overflow-wrap: break-word;
     text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 210, 198, 0.6);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    border: 2px solid rgba(0, 210, 198, 0.4);
+    box-shadow: 
     0 1px 2px rgba(0, 0, 0, 0.9),
     0 0 8px rgba(0, 210, 198, 0.6);
 }
@@ -103,7 +112,7 @@ a:hover {
 }
 
 .hov img {
-    width: 60px;
+    width: 35px;
     transition: all 0.25s ease;
 }
 
