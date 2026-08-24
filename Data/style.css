@@ -45,7 +45,6 @@ header {
     font-size: clamp(14px, 1.2vw, 18px);
     font-weight: 800;
     gap: clamp(10px, 1vw, 15px);
-    #border-bottom: 1px solid #000000AA;
     padding: clamp(10px, 1.5vw, 20px);
     z-index: 10;
 }
