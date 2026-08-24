@@ -99,6 +99,9 @@ a:hover {
     padding: clamp(20px, 3vw, 40px);
     font-size: clamp(20px, 2vw, 30px);
     overflow-wrap: break-word;
+    text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 210, 198, 0.6);
 }
 
 .link-cont {
@@ -126,31 +129,98 @@ a:hover {
     transform: scale(1.15);
 }
 
-/* Дополнительные медиа-запросы для лучшей адаптивности */
 @media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        gap: clamp(20px, 4vh, 40px);
+    body {
+        font-size: clamp(18px, 4vw, 22px);
     }
     
     header {
-        flex-wrap: wrap;
         height: auto;
-        min-height: clamp(40px, 6vh, 60px);
+        min-height: clamp(60px, 10vh, 80px);
+        font-size: clamp(16px, 3vw, 20px);
+        padding: clamp(15px, 3vw, 25px);
+        gap: clamp(15px, 3vw, 20px);
+    }
+    
+    main {
+        flex-direction: column;
+        gap: clamp(30px, 6vh, 60px);
+        font-size: clamp(16px, 3vw, 20px);
+        padding: clamp(25px, 5vw, 40px) clamp(15px, 4vw, 25px);
     }
     
     footer {
-        padding-left: clamp(20px, 5vw, 50px);
+        font-size: clamp(14px, 3vw, 18px) !important;
+        padding-top: clamp(60px, 10vh, 80px);
+        padding-left: clamp(15px, 5vw, 30px);
+    }
+    
+    .box {
+        font-size: clamp(24px, 6vw, 32px);
+        padding: clamp(25px, 5vw, 35px);
+        max-width: 95vw;
+    }
+    
+    .link-cont {
+        padding: clamp(20px, 4vw, 30px);
+        gap: clamp(25px, 5vw, 40px);
+    }
+    
+    .hov {
+        gap: clamp(8px, 2vw, 15px);
+    }
+    
+    .hov img {
+        width: clamp(35px, 8vw, 50px);
+    }
+    
+    p {
+        line-height: 1.6;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: clamp(20px, 5vw, 24px);
+    }
+    
+    header {
+        font-size: clamp(18px, 4.5vw, 22px);
+        min-height: clamp(50px, 12vh, 70px);
+    }
+    
+    main {
+        font-size: clamp(18px, 4vw, 22px);
+        gap: clamp(25px, 8vh, 50px);
+    }
+    
     .link-cont {
         flex-direction: column;
-        gap: 15px;
+        gap: clamp(20px, 5vh, 30px);
+        padding: clamp(25px, 6vw, 35px);
     }
     
     .box {
+        font-size: clamp(26px, 7vw, 36px);
+        padding: clamp(30px, 6vw, 40px);
+    }
+    
+    .hov img {
+        width: clamp(40px, 10vw, 60px);
+    }
+    
+    footer {
+        font-size: clamp(16px, 4vw, 20px) !important;
+        padding-left: clamp(10px, 3vw, 20px);
+    }
+}
+
+@media (max-width: 320px) {
+    .box {
+        font-size: clamp(24px, 8vw, 30px);
+    }
+    
+    header {
         font-size: clamp(16px, 5vw, 20px);
     }
 }
