@@ -146,6 +146,22 @@ a:hover {
     transform: scale(1.15);
 }
 
+.osim1 {
+    display: flex;
+    align-items: center;
+    gap: clamp(5px, 1.7vw, 10px);
+}
+
+.osim1 img {
+    width: clamp(40px, 4.5vw, 60px);
+    transition: all 0.25s ease;
+}
+.osim1:hover img {
+    filter: drop-shadow(0 0 12px rgba(0, 120, 214, 0.9));
+    opacity: 1;
+    transform: scale(1.15);
+}
+
 @media (max-width: 768px) {
     body {
         font-size: clamp(18px, 4vw, 22px);
