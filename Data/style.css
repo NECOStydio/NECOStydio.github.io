@@ -27,10 +27,14 @@ body {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     background: url('../Data/background2.jpg') bottom center / cover fixed no-repeat, #000000BB;
+    /* ===== РАЗМЕР ОСНОВНОГО ТЕКСТА ===== */
+    /* Управляет размером всего текста на странице */
+    /* Измените значения для настройки: min(16px), preferred(1.5vw), max(24px) */
     font-size: clamp(16px, 1.5vw, 24px);
     font-family: SuperNat-kg, arial, sans-serif;
     color: #AAAAAAFF;
     padding-top: clamp(50px, 7vh, 70px);
+}
 
 header {
     display: flex;
@@ -42,6 +46,9 @@ header {
     left: 0;
     width: 100%;
     background: #000000BB;
+    /* ===== РАЗМЕР ТЕКСТА В ШАПКЕ ===== */
+    /* Управляет размером текста в header */
+    /* Увеличьте max значение для более крупного текста */
     font-size: clamp(14px, 1.2vw, 18px);
     font-weight: 800;
     gap: clamp(10px, 1vw, 15px);
@@ -55,6 +62,8 @@ header p {
 }
 
 main {
+    /* ===== РАЗМЕР ТЕКСТА В ОСНОВНОМ КОНТЕНТЕ ===== */
+    /* Управляет размером текста в main */
     font-size: clamp(14px, 1vw, 16px);
     background: #000000BB;
     display: flex;
@@ -67,10 +76,152 @@ main {
     margin-top: 0;
 }
 
+/* ===== СТИЛИ ДЛЯ НАВИГАЦИИ ===== */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем блок по центру */
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    padding: clamp(20px, 3vw, 40px);
+}
+
+/* Добавляем ключевые кадры для пульсирующей анимации свечения */
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 
+            0 1px 2px rgba(0, 0, 0, 0.9),
+            0 0 8px rgba(0, 210, 198, 0.6);
+        color: #AAAAAAFF;
+        transform: scale(1) translateY(0);
+        letter-spacing: 0px;
+    }
+    50% {
+        text-shadow: 
+            0 0 10px rgba(0, 210, 198, 0.8),
+            0 0 30px rgba(0, 210, 198, 0.6),
+            0 0 60px rgba(0, 210, 198, 0.4),
+            0 0 100px rgba(0, 210, 198, 0.2);
+        color: #FFFFFF;
+        transform: scale(1.08) translateY(-3px);
+        letter-spacing: 2px;
+    }
+    100% {
+        text-shadow: 
+            0 1px 2px rgba(0, 0, 0, 0.9),
+            0 0 8px rgba(0, 210, 198, 0.6);
+        color: #AAAAAAFF;
+        transform: scale(1) translateY(0);
+        letter-spacing: 0px;
+    }
+}
+
+/* ===== РАЗМЕР ЗАГОЛОВКА В НАВИГАЦИИ ===== */
+.menu h2 {
+    margin-bottom: clamp(30px, 5vh, 50px);
+    text-align: center;
+    font-size: clamp(24px, 3.5vw, 42px);
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 210, 198, 0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block; /* Чтобы transform работал корректно */
+}
+
+.menu h2:hover {
+    animation: pulseGlow 2s ease-in-out infinite; /* Пульсирующая анимация при наведении */
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 4vh, 40px);
+    width: 100%;
+    max-width: 600px; /* Увеличено с 500px для большего пространства */
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+}
+
+.menu ul li {
+    width: 100%;
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Выравниваем содержимое по левому краю */
+    gap: clamp(15px, 2vw, 25px);
+    width: 100%;
+    padding: clamp(15px, 2vw, 25px);
+    background: rgba(0, 0, 0, 0.3);
+    /* УБРАН border */
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #8FA4B5;
+    /* ===== РАЗМЕР ТЕКСТА В ССЫЛКАХ НАВИГАЦИИ ===== */
+    /* Управляет размером текста в пунктах меню */
+    /* Увеличьте значения для более крупного текста ссылок */
+    font-size: clamp(18px, 2.2vw, 28px);
+}
+
+.menu ul li a:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 210, 198, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ===== ЕДИНЫЙ РАЗМЕР ИКОНОК В НАВИГАЦИИ ===== */
+/* Объединяем стили для всех OS иконок */
+.osim, .osim1, .osim2 {
+    display: flex;
+    align-items: center;
+    gap: clamp(5px, 1.7vw, 10px);
+    /* Фиксированная ширина для выравнивания */
+    min-width: clamp(80px, 8vw, 120px);
+    justify-content: flex-start; /* Изменено с center на flex-start для выравнивания по левому краю */
+}
+
+/* ===== ЕДИНЫЙ РАЗМЕР ИЗОБРАЖЕНИЙ В НАВИГАЦИИ ===== */
+/* Все изображения OS теперь имеют одинаковый размер */
+.osim img, .osim1 img, .osim2 img {
+    /* Фиксированные размеры для всех иконок */
+    width: clamp(45px, 5vw, 65px);
+    height: clamp(45px, 5vw, 65px);
+    object-fit: contain;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.osim:hover img {
+    filter: drop-shadow(0 0 12px rgba(0, 120, 214, 0.9));
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.osim1:hover img {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.9));
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.osim2:hover img {
+    filter: drop-shadow(0 0 12px rgba(255, 210, 255, 0.9));
+    opacity: 1;
+    transform: scale(1.15);
+}
+
 footer {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    /* ===== РАЗМЕР ТЕКСТА В ПОДВАЛЕ ===== */
+    /* Управляет размером текста в footer */
     font-size: clamp(11px, 0.9vw, 13px) !important;
     background: #000000BB;
     font-weight: bold;
@@ -88,20 +239,22 @@ a {
 a:hover {
     color: #8FA4B5;
     text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.9),
-    0 0 8px rgba(0, 210, 198, 0.6);
+        0 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 210, 198, 0.6);
 }
 
+/* ===== РАЗМЕР ТЕКСТА В БЛОКАХ .box ===== */
 .box {
-    display: inline-block; 
+    display: inline-block;
     width: fit-content;
     max-width: min(900px, 90vw);
     padding: clamp(20px, 3vw, 40px);
+    /* Управляет размером текста в блоках box */
     font-size: clamp(20px, 2vw, 30px);
     overflow-wrap: break-word;
     text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.9),
-    0 0 8px rgba(0, 210, 198, 0.6);
+        0 1px 2px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 210, 198, 0.6);
 }
 
 .link-cont {
@@ -120,6 +273,8 @@ a:hover {
 
 .hov img {
     width: clamp(25px, 2.5vw, 35px);
+    height: clamp(25px, 2.5vw, 35px);
+    object-fit: contain;
     transition: all 0.25s ease;
 }
 
@@ -129,41 +284,10 @@ a:hover {
     transform: scale(1.15);
 }
 
-.osim {
-    display: flex;
-    align-items: center;
-    gap: clamp(5px, 1.7vw, 10px);
-}
-
-.osim img {
-    width: clamp(40px, 4.5vw, 60px);
-    transition: all 0.25s ease;
-}
-
-.osim:hover img {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
-    opacity: 1;
-    transform: scale(1.15);
-}
-
-.osim1 {
-    display: flex;
-    align-items: center;
-    gap: clamp(5px, 1.7vw, 10px);
-}
-
-.osim1 img {
-    width: clamp(40px, 4.5vw, 60px);
-    transition: all 0.25s ease;
-}
-.osim1:hover img {
-    filter: drop-shadow(0 0 12px rgba(0, 120, 214, 0.9));
-    opacity: 1;
-    transform: scale(1.15);
-}
-
+/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ ===== */
 @media (max-width: 768px) {
     body {
+        /* ===== РАЗМЕР ТЕКСТА НА ПЛАНШЕТАХ ===== */
         font-size: clamp(18px, 4vw, 22px);
         padding-top: clamp(60px, 10vh, 80px);
     }
@@ -171,6 +295,7 @@ a:hover {
     header {
         height: auto;
         min-height: clamp(60px, 10vh, 80px);
+        /* ===== РАЗМЕР ТЕКСТА В ШАПКЕ НА ПЛАНШЕТАХ ===== */
         font-size: clamp(16px, 3vw, 20px);
         padding: clamp(15px, 3vw, 25px);
         gap: clamp(15px, 3vw, 20px);
@@ -179,18 +304,48 @@ a:hover {
     main {
         flex-direction: column;
         gap: clamp(30px, 6vh, 60px);
+        /* ===== РАЗМЕР ТЕКСТА В MAIN НА ПЛАНШЕТАХ ===== */
         font-size: clamp(16px, 3vw, 20px);
         padding: clamp(25px, 5vw, 40px) clamp(15px, 4vw, 25px);
         min-height: calc(100vh - 80px - 120px);
     }
     
+    .menu {
+        padding: clamp(15px, 3vw, 25px);
+    }
+    
+    /* ===== РАЗМЕР ЗАГОЛОВКА НАВИГАЦИИ НА ПЛАНШЕТАХ ===== */
+    .menu h2 {
+        font-size: clamp(22px, 4.5vw, 32px);
+        margin-bottom: clamp(20px, 4vh, 35px);
+    }
+    
+    .menu ul {
+        gap: clamp(15px, 3vh, 30px);
+    }
+    
+    /* ===== РАЗМЕР ТЕКСТА ССЫЛОК НА ПЛАНШЕТАХ ===== */
+    .menu ul li a {
+        padding: clamp(12px, 2vw, 20px);
+        gap: clamp(10px, 2vw, 20px);
+        font-size: clamp(16px, 3vw, 24px);
+    }
+    
     footer {
+        /* ===== РАЗМЕР ТЕКСТА В ПОДВАЛЕ НА ПЛАНШЕТАХ ===== */
         font-size: clamp(14px, 3vw, 18px) !important;
         padding-top: clamp(60px, 10vh, 80px);
         padding-left: clamp(15px, 5vw, 30px);
     }
     
+    /* ===== РАЗМЕР ИКОНОК НА ПЛАНШЕТАХ ===== */
+    .osim img, .osim1 img, .osim2 img {
+        width: clamp(40px, 6vw, 55px);
+        height: clamp(40px, 6vw, 55px);
+    }
+    
     .box {
+        /* ===== РАЗМЕР ТЕКСТА В .box НА ПЛАНШЕТАХ ===== */
         font-size: clamp(24px, 6vw, 32px);
         padding: clamp(25px, 5vw, 35px);
         max-width: 95vw;
@@ -207,6 +362,7 @@ a:hover {
     
     .hov img {
         width: clamp(35px, 8vw, 50px);
+        height: clamp(35px, 8vw, 50px);
     }
     
     p {
@@ -216,21 +372,45 @@ a:hover {
 
 @media (max-width: 480px) {
     body {
+        /* ===== РАЗМЕР ТЕКСТА НА ТЕЛЕФОНАХ ===== */
         font-size: clamp(20px, 5vw, 24px);
         padding-top: clamp(50px, 12vh, 70px);
     }
     
     header {
+        /* ===== РАЗМЕР ТЕКСТА В ШАПКЕ НА ТЕЛЕФОНАХ ===== */
         font-size: clamp(18px, 4.5vw, 22px);
         min-height: clamp(50px, 12vh, 70px);
         padding: clamp(10px, 2.5vw, 15px);
     }
     
     main {
+        /* ===== РАЗМЕР ТЕКСТА В MAIN НА ТЕЛЕФОНАХ ===== */
         font-size: clamp(18px, 4vw, 22px);
         gap: clamp(25px, 8vh, 50px);
         padding: clamp(20px, 4vw, 30px) clamp(15px, 3vw, 20px);
         min-height: calc(100vh - 70px - 100px);
+    }
+    
+    .menu {
+        padding: clamp(10px, 2vw, 15px);
+    }
+    
+    /* ===== РАЗМЕР ЗАГОЛОВКА НАВИГАЦИИ НА ТЕЛЕФОНАХ ===== */
+    .menu h2 {
+        font-size: clamp(24px, 6vw, 34px);
+        margin-bottom: clamp(20px, 4vh, 30px);
+    }
+    
+    .menu ul {
+        gap: clamp(20px, 4vh, 35px);
+    }
+    
+    /* ===== РАЗМЕР ТЕКСТА ССЫЛОК НА ТЕЛЕФОНАХ ===== */
+    .menu ul li a {
+        padding: clamp(15px, 3vw, 20px);
+        gap: clamp(8px, 2vw, 15px);
+        font-size: clamp(18px, 4.5vw, 26px);
     }
     
     .link-cont {
@@ -239,16 +419,25 @@ a:hover {
         padding: clamp(25px, 6vw, 35px);
     }
     
+    /* ===== РАЗМЕР ТЕКСТА В .box НА ТЕЛЕФОНАХ ===== */
     .box {
         font-size: clamp(26px, 7vw, 36px);
         padding: clamp(30px, 6vw, 40px);
     }
     
+    /* ===== РАЗМЕР ИКОНОК НА ТЕЛЕФОНАХ ===== */
+    .osim img, .osim1 img, .osim2 img {
+        width: clamp(40px, 8vw, 50px);
+        height: clamp(40px, 8vw, 50px);
+    }
+    
     .hov img {
         width: clamp(40px, 10vw, 60px);
+        height: clamp(40px, 10vw, 60px);
     }
     
     footer {
+        /* ===== РАЗМЕР ТЕКСТА В ПОДВАЛЕ НА ТЕЛЕФОНАХ ===== */
         font-size: clamp(16px, 4vw, 20px) !important;
         padding-left: clamp(10px, 3vw, 20px);
         padding-top: clamp(50px, 8vh, 60px);
@@ -271,5 +460,16 @@ a:hover {
     
     main {
         min-height: calc(100vh - 60px - 90px);
+    }
+    
+    /* ===== РАЗМЕР ТЕКСТА ССЫЛОК НА МАЛЕНЬКИХ ТЕЛЕФОНАХ ===== */
+    .menu ul li a {
+        padding: clamp(10px, 3vw, 15px);
+        font-size: clamp(16px, 5vw, 20px);
+    }
+    
+    .osim img, .osim1 img, .osim2 img {
+        width: clamp(35px, 10vw, 45px);
+        height: clamp(35px, 10vw, 45px);
     }
 }
