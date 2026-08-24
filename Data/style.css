@@ -224,23 +224,27 @@ footer {
     /* Управляет размером текста в footer */
     font-size: clamp(11px, 0.9vw, 13px) !important;
     background: #000000BB;
-    font-weight: bold;
+    font-weight: 900;
     transition: background-color 0.3s ease;
     padding-top: clamp(50px, 7vh, 70px);
     padding-left: clamp(100px, 20vw, 300px);
 }
 
+footer a:hover {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
 a {
-    color: #8FA4B5;
+    color: #8FA4B5FF;
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.2s linear;
 }
 
 a:hover {
-    color: #8FA4B5;
+    color: #8FA4B5FF;
     text-shadow: 
         0 1px 2px rgba(0, 0, 0, 0.9),
-        0 0 8px rgba(0, 210, 198, 0.6);
+        0 0 12px rgba(0, 210, 198, 0.6);
 }
 
 /* ===== РАЗМЕР ТЕКСТА В БЛОКАХ .box ===== */
@@ -271,6 +275,13 @@ a:hover {
     gap: clamp(5px, 0.7vw, 10px);
 }
 
+.hov:hover {
+    display: flex;
+    align-items: center;
+    gap: clamp(5px, 0.7vw, 10px);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
 .hov img {
     width: clamp(25px, 2.5vw, 35px);
     height: clamp(25px, 2.5vw, 35px);
@@ -282,6 +293,7 @@ a:hover {
     filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
     opacity: 1;
     transform: scale(1.15);
+    animation: pulseGlow 2s ease-in-out infinite;
 }
 
 /* ===== МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ ===== */
