@@ -132,11 +132,11 @@ a:hover {
 .osim {
     display: flex;
     align-items: center;
-    gap: clamp(5px, 0.7vw, 10px);
+    gap: clamp(5px, 1.7vw, 10px);
 }
 
 .osim img {
-    width: clamp(40px, 2.5vw, 60px);
+    width: clamp(40px, 4.5vw, 60px);
     transition: all 0.25s ease;
 }
 
