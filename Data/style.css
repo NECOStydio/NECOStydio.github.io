@@ -129,6 +129,22 @@ a:hover {
     transform: scale(1.15);
 }
 
+.osim {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 0.7vw, 20px);
+}
+
+.osim img {
+    width: clamp(50px, 2.5vw, 70px);
+    transition: all 0.25s ease;
+}
+
+.osim:hover img {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+    opacity: 1;
+    transform: scale(1.15);
+}
 
 @media (max-width: 768px) {
     body {
