@@ -30,8 +30,7 @@ body {
     font-size: clamp(16px, 1.5vw, 24px);
     font-family: SuperNat-kg, arial, sans-serif;
     color: #AAAAAAFF;
-    padding-top: clamp(50px, 7vh, 70px); /* Добавлен отступ под фиксированный header */
-}
+    padding-top: clamp(50px, 7vh, 70px);
 
 header {
     display: flex;
@@ -46,7 +45,7 @@ header {
     font-size: clamp(14px, 1.2vw, 18px);
     font-weight: 800;
     gap: clamp(10px, 1vw, 15px);
-    border-bottom: 1px solid #000000AA;
+    #border-bottom: 1px solid #000000AA;
     padding: clamp(10px, 1.5vw, 20px);
     z-index: 10;
 }
@@ -66,7 +65,7 @@ main {
     justify-content: center;
     gap: clamp(40px, 12vw, 200px);
     padding: clamp(20px, 3vw, 40px) clamp(10px, 1.5vw, 20px);
-    margin-top: 0; /* Убираем отрицательные отступы */
+    margin-top: 0;
 }
 
 footer {
@@ -131,11 +130,11 @@ a:hover {
     transform: scale(1.15);
 }
 
-/* Медиа-запросы для адаптивности с увеличенными размерами на мобильных */
+
 @media (max-width: 768px) {
     body {
         font-size: clamp(18px, 4vw, 22px);
-        padding-top: clamp(60px, 10vh, 80px); /* Увеличенный отступ под header */
+        padding-top: clamp(60px, 10vh, 80px);
     }
     
     header {
@@ -151,7 +150,7 @@ a:hover {
         gap: clamp(30px, 6vh, 60px);
         font-size: clamp(16px, 3vw, 20px);
         padding: clamp(25px, 5vw, 40px) clamp(15px, 4vw, 25px);
-        min-height: calc(100vh - 80px - 120px); /* Пересчитано с учётом header */
+        min-height: calc(100vh - 80px - 120px);
     }
     
     footer {
@@ -187,7 +186,7 @@ a:hover {
 @media (max-width: 480px) {
     body {
         font-size: clamp(20px, 5vw, 24px);
-        padding-top: clamp(50px, 12vh, 70px); /* Отступ для маленьких экранов */
+        padding-top: clamp(50px, 12vh, 70px);
     }
     
     header {
@@ -200,7 +199,7 @@ a:hover {
         font-size: clamp(18px, 4vw, 22px);
         gap: clamp(25px, 8vh, 50px);
         padding: clamp(20px, 4vw, 30px) clamp(15px, 3vw, 20px);
-        min-height: calc(100vh - 70px - 100px); /* Пересчитано */
+        min-height: calc(100vh - 70px - 100px);
     }
     
     .link-cont {
@@ -225,10 +224,9 @@ a:hover {
     }
 }
 
-/* Для очень маленьких экранов */
 @media (max-width: 320px) {
     body {
-        padding-top: clamp(45px, 14vh, 60px); /* Уменьшенный отступ */
+        padding-top: clamp(45px, 14vh, 60px);
     }
     
     .box {
